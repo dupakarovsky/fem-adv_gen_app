@@ -138,17 +138,7 @@ body::before {
 
     transform: translateY(10%);
     opacity: 0;
-    animation: popin 200ms linear 200ms forwards;
 }
-
-@keyframes popin {
-    to {
-        transform: translateY(-10%);
-        opacity: 1;
-    }
-}
-
-
 
 
 /*
@@ -185,12 +175,6 @@ span[class^="char--"] {
     /* opacity: 0; */
 }
 
-
-@keyframes reveal {
-    to {
-        opacity: 1
-    }
-}
 
 /*
     =====================
