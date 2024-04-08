@@ -20,9 +20,9 @@
 
 :where(body) {
     min-block-size: 100%;
-    text-rendering: optimizeSpeed;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-        "Open Sans", "Helvetica Neue", sans-serif;
+    text-rendering: optimizespeed;
+    font-family: system-ui, -apple-system, blinkmacsystemfont, "segoe ui", roboto, oxygen, ubuntu, cantarell,
+        "open sans", "helvetica neue", sans-serif;
     line-height: 1.6;
 }
 
@@ -79,30 +79,148 @@
 
 /*
 * ////////////////////////////////////////////
-* /////////// PROJECT STYLES /////////////////
+* /////////// project styles /////////////////
 * ////////////////////////////////////////////
 */
+
+:root {
+    --light-cyan: hsl(193, 38%, 86%);
+    --neon-green: hsl(150, 100%, 66%);
+    --grayish-blue: hsl(217, 19%, 38%);
+    --dark-grayish-blue: hsl(217, 19%, 24%);
+    --dark-blue: hsl(218, 23%, 16%);
+
+    --ff-quote: 'Manrope';
+    --fs-quote: 28px;
+    --fw-quote: 800;
+
+    --radius: 15px;
+}
 
 body {
     display: grid;
     place-items: center;
-}
-.logo-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    background-color: var(--dark-blue);
 
-    margin-block-end: 2rem;
-}
-.logo-box img {
-    width: 7.5rem;
+    font-family: var(--ff-quote);
+    font-size: var(--fs-quote);
+    padding: 1rem;
 }
 
-.card {
+body::before {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../frontend/design/desktop-design.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+/*
+    ===================
+    * ADVICE GENERATOR
+    ===================
+*/
+.advice-generator {
+    --separator: 2rem;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+
+    background-color: var(--dark-grayish-blue);
+    border-radius: var(--radius);
+    padding-inline: 2rem;
+    padding-block: 2rem 0;
+
+    transform: translateY(10%);
+    opacity: 0;
+    animation: popin 200ms linear 200ms forwards;
+}
+
+@keyframes popin {
+    to {
+        transform: translateY(-10%);
+        opacity: 1;
+    }
+}
+
+
+
+
+/*
+    =====================
+    * ADVICE NUMBER
+    =====================
+*/
+.advice-number {
+    display: inline-block;
+
+    padding-block-end: calc(var(--separator)/2);
+    color: var(--neon-green);
+    font-size: 14px;
+    font-weight: var(--fw-quote);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/*
+=====================
+* ADVICE BOX
+=====================
+*/
+.advice-box {
+    display: inline-block;
+
+    max-inline-size: 24ch;
+    padding-block-end: var(--separator);
+    font-weight: var(--fw-quote);
+    text-align: center;
+}
+
+span[class^="char--"] {
+    /* opacity: 0; */
+}
+
+
+@keyframes reveal {
+    to {
+        opacity: 1
+    }
+}
+
+/*
+    =====================
+    * PICTURE
+    =====================
+*/
+picture {
+    padding-block-end: calc(var(--separator) /2);
+}
+
+
+/*
+    =====================
+    * BUTTON
+    =====================
+*/
+.button {
+    display: grid;
+    place-items: center;
+
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    border: none;
+    background-color: var(--neon-green);
+    transform: translateY(50%);
+
+    cursor: pointer;
+}
+
+.button:is(:active, :hover) {
+    box-shadow: 0 0 25px var(--neon-green);
 }
