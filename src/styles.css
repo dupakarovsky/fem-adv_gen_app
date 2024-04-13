@@ -92,6 +92,7 @@
 
     --ff-quote: 'Manrope';
     --fs-quote: 28px;
+    --fs-quote-sm: 24px;
     --fw-quote: 800;
 
     --radius: 15px;
@@ -115,7 +116,7 @@ body::before {
     background-image: url("../frontend/design/desktop-design.jpg");
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0;
+    opacity: 0.1;
 }
 
 /*
@@ -124,6 +125,7 @@ body::before {
     ===================
 */
 .advice-generator {
+    --min-height: 285px;
     --separator: 2rem;
 
     display: flex;
@@ -131,13 +133,12 @@ body::before {
     align-items: center;
     justify-content: center;
 
+    min-height: var(--min-height);
     background-color: var(--dark-grayish-blue);
     border-radius: var(--radius);
     padding-inline: 2rem;
     padding-block: 2rem 0;
 
-    transform: translateY(10%);
-    opacity: 0;
 }
 
 
@@ -147,8 +148,11 @@ body::before {
     =====================
 */
 .advice-number {
-    display: inline-block;
+    display: flex;
+    justify-content: flex-start;
+    gap: .25rem;
 
+    min-inline-size: 140px;
     padding-block-end: calc(var(--separator)/2);
     color: var(--neon-green);
     font-size: 14px;
@@ -163,7 +167,11 @@ body::before {
 =====================
 */
 .advice-box {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-block-size: calc(var(--min-height) * 0.80);
 
     max-inline-size: 24ch;
     padding-block-end: var(--separator);
@@ -171,10 +179,14 @@ body::before {
     text-align: center;
 }
 
-span[class^="char--"] {
-    /* opacity: 0; */
+/*
+    =====================
+    * ADVICE
+    =====================
+*/
+.advice {
+    font-size: clamp(var(--fs-quote-sm), 6vw, var(--fs-quote))
 }
-
 
 /*
     =====================
@@ -201,10 +213,16 @@ picture {
     border: none;
     background-color: var(--neon-green);
     transform: translateY(50%);
-
     cursor: pointer;
+    outline-offset: 0;
+    transition: outline-offset 150ms;
 }
 
 .button:is(:active, :hover) {
     box-shadow: 0 0 25px var(--neon-green);
+}
+
+.button:is(:focus-visible) {
+    outline: 2px solid var(--neon-green);
+    outline-offset: 3px;
 }
