@@ -1,0 +1,28 @@
+/*
+    =====================
+    * BUTTON
+    =====================
+*/
+.button {
+    display: grid;
+    place-items: center;
+
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    border: none;
+    background-color: var(--neon-green);
+    transform: translateY(50%);
+    cursor: pointer;
+    outline-offset: 0;
+    transition: outline-offset 150ms;
+}
+
+.button:is(:active, :hover) {
+    box-shadow: 0 0 25px var(--neon-green);
+}
+
+.button:is(:focus-visible) {
+    outline: 2px solid var(--neon-green);
+    outline-offset: 3px;
+}

@@ -1,0 +1,8 @@
+/*
+    =====================
+    * PICTURE
+    =====================
+*/
+picture {
+    padding-block-end: calc(var(--separator) /2);
+}

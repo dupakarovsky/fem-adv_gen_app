@@ -1,6 +1,6 @@
 /*
     =========================
-    * CUTSTOM HOOK USEADVICE   
+    * CUSTOM HOOK USEADVICE   
     =========================
 */
 import { useState, useEffect, useCallback, useRef } from "react";
@@ -30,13 +30,12 @@ export function useAdvice(url: string, fetchDelay: number) {
             .catch((err: unknown) => {
                 switch (true) {
                     case err instanceof Error: {
-                        setErrorMessage(err);
+                        setErrorMessage(err as Error);
                         break;
                     }
                     default: {
                         const unknowError: Error = new Error("Something wrong has happened, which is a mistery.");
                         setErrorMessage(unknowError);
-                        throw unknowError;
                     }
                 }
             })

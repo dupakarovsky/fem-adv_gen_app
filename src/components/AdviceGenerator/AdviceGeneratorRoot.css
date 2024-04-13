@@ -1,0 +1,17 @@
+/*
+    ===================
+    * ADVICE GENERATOR
+    ===================
+*/
+.advice-generator-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-block-size: var(--min-advice-height);
+    background-color: var(--dark-grayish-blue);
+    border-radius: var(--radius);
+    padding-inline: 2rem;
+    padding-block: 2rem 0;
+}

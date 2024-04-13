@@ -1,0 +1,8 @@
+/*
+    =====================
+    * ADVICE
+    =====================
+*/
+.advice {
+    font-size: clamp(var(--fs-quote-sm), 6vw, var(--fs-quote))
+}

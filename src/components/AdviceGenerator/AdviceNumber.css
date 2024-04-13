@@ -1,0 +1,18 @@
+/*
+    =====================
+    * ADVICE NUMBER
+    =====================
+*/
+.advice-number {
+    display: flex;
+    justify-content: flex-start;
+    gap: .25rem;
+
+    min-inline-size: 140px;
+    padding-block-end: calc(var(--separator)/2);
+    color: var(--neon-green);
+    font-size: clamp(12px, 2vw + 0.25rem, 14px);
+    font-weight: var(--fw-quote);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
